@@ -15,8 +15,23 @@ http://wiki.darkrp.com/index.php/DarkRP:CustomJobFields
 
 Add your custom jobs under the following line:
 ---------------------------------------------------------------------------]]
-
-
+TEAM_MOB = DarkRP.createJob("Assasin", {
+	color = Color(0, 0, 0, 255),
+	model = {"models/player/arctic.mdl"},
+	description = [[Killing People Amd Stealiing Things]],
+	weapons = {"lockpick", "door_ram", "weapon_fists", "weapon_cs_base2", "manhack_welder", "weapon_medkit", "keys", "weapon_base", "ls_sniper", "med_kit"},
+	command = "!job1",
+	max = 4,
+	salary = 200,
+	admin = 2,
+	vote = false,
+	hasLicense = true,
+	candemote = false,
+	category = hitman",
+	customCheck = function(ply) return
+		table.HasValue({"vip", "admin"}, ply:GetNWString("usergroup"))
+	end,
+})
 
 --[[---------------------------------------------------------------------------
 Define which team joining players spawn into and what team you change to if demoted
